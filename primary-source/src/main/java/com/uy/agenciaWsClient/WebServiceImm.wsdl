@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://imm.uy.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="WebServiceImm" targetNamespace="http://imm.uy.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://imm.uy.com/" elementFormDefault="unqualified" targetNamespace="http://imm.uy.com/" version="1.0">
+
+  <xs:element name="alta_tiket" type="tns:alta_tiket"/>
+
+  <xs:element name="alta_tiketResponse" type="tns:alta_tiketResponse"/>
+
+  <xs:element name="baja_tiket" type="tns:baja_tiket"/>
+
+  <xs:element name="baja_tiketResponse" type="tns:baja_tiketResponse"/>
+
+  <xs:complexType name="alta_tiket">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="agencia" type="xs:string"/>
+      <xs:element minOccurs="0" name="matricula" type="xs:string"/>
+      <xs:element minOccurs="0" name="fecha_venta" type="xs:string"/>
+      <xs:element minOccurs="0" name="inicio_est" type="xs:string"/>
+      <xs:element name="minutos" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="alta_tiketResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:ticketsEst"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ticketsEst">
+    <xs:sequence>
+      <xs:element name="agencia_id" type="xs:int"/>
+      <xs:element minOccurs="0" name="estado" type="xs:string"/>
+      <xs:element minOccurs="0" name="fechaVenta" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="horaInicio" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="importe" type="xs:double"/>
+      <xs:element minOccurs="0" name="matricula" type="xs:string"/>
+      <xs:element name="minutos" type="xs:int"/>
+      <xs:element name="numero_ticket" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="baja_tiket">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="baja_tiketResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="alta_tiketResponse">
+    <wsdl:part element="tns:alta_tiketResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="baja_tiketResponse">
+    <wsdl:part element="tns:baja_tiketResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="alta_tiket">
+    <wsdl:part element="tns:alta_tiket" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="baja_tiket">
+    <wsdl:part element="tns:baja_tiket" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WebServiceImm">
+    <wsdl:operation name="alta_tiket">
+      <wsdl:input message="tns:alta_tiket" name="alta_tiket">
+    </wsdl:input>
+      <wsdl:output message="tns:alta_tiketResponse" name="alta_tiketResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="baja_tiket">
+      <wsdl:input message="tns:baja_tiket" name="baja_tiket">
+    </wsdl:input>
+      <wsdl:output message="tns:baja_tiketResponse" name="baja_tiketResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceImmSoapBinding" type="tns:WebServiceImm">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="alta_tiket">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="alta_tiket">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="alta_tiketResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="baja_tiket">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="baja_tiket">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="baja_tiketResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceImm">
+    <wsdl:port binding="tns:WebServiceImmSoapBinding" name="WebServiceImmPort">
+      <soap:address location="http://localhost:8080/servlet/WebServiceImm"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
