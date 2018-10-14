@@ -38,7 +38,7 @@ public interface WebServiceImm {
     @RequestWrapper(localName = "alta_tiket", targetNamespace = "http://imm.uy.com/", className = "com.uy.agenciaWsClient.AltaTiket")
     @ResponseWrapper(localName = "alta_tiketResponse", targetNamespace = "http://imm.uy.com/", className = "com.uy.agenciaWsClient.AltaTiketResponse")
     public TicketsEst altaTiket(
-        @WebParam(name = "agenciaWsClient", targetNamespace = "")
+        @WebParam(name = "agencia", targetNamespace = "")
         String agencia,
         @WebParam(name = "matricula", targetNamespace = "")
         String matricula,

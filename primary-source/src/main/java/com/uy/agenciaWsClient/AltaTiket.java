@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="agenciaWsClient" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="agencia" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="matricula" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="fecha_venta" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="inicio_est" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -49,7 +49,7 @@ public class AltaTiket {
     protected int minutos;
 
     /**
-     * Obtiene el valor de la propiedad agenciaWsClient.
+     * Obtiene el valor de la propiedad agencia.
      * 
      * @return
      *     possible object is
@@ -61,7 +61,7 @@ public class AltaTiket {
     }
 
     /**
-     * Define el valor de la propiedad agenciaWsClient.
+     * Define el valor de la propiedad agencia.
      * 
      * @param value
      *     allowed object is
